@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_logo.dart';
 import '../../core/widgets/coin_badge.dart';
 import '../../core/widgets/app_network_image.dart';
 import '../../providers/auth_provider.dart';
@@ -227,28 +228,10 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
                       children: [
                         Row(
                           children: [
-                            Container(
-                              width: 36,
-                              height: 36,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: AppColors.primaryContainer.withValues(alpha: 0.35),
-                                    blurRadius: 6,
-                                    offset: const Offset(0, 2),
-                                  ),
-                                ],
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                  'assets/images/logo.png',
-                                  width: 36,
-                                  height: 36,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                            const AppLogo(
+                              size: 36,
+                              borderRadius: 10,
+                              showShadow: true,
                             ),
                             const SizedBox(width: 8),
                             Row(

@@ -6,6 +6,7 @@ import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import '../../providers/profile_provider.dart';
 import 'coin_badge.dart';
+import 'app_logo.dart';
 
 class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
   final String? title;
@@ -41,29 +42,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
               onPressed: () => context.pop(),
             ),
           ] else ...[
-            Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.primaryContainer.withValues(alpha: 0.35),
-                    blurRadius: 6,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 36,
-                  height: 36,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            const AppLogo(size: 36),
             const SizedBox(width: 8),
           ],
           if (title != null)

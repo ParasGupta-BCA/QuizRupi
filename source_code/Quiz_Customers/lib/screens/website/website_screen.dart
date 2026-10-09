@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_logo.dart';
 import '../../providers/app_settings_provider.dart';
 import 'platform_web_view.dart';
 
@@ -741,33 +742,10 @@ class _WebsiteScreenState extends ConsumerState<WebsiteScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 96,
-              height: 96,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.primaryContainer.withValues(alpha: 0.5),
-                    blurRadius: 30,
-                    offset: const Offset(0, 8),
-                  ),
-                  BoxShadow(
-                    color: AppColors.secondary.withValues(alpha: 0.25),
-                    blurRadius: 20,
-                    offset: const Offset(0, 0),
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 96,
-                  height: 96,
-                  fit: BoxFit.cover,
-                ),
-              ),
+            const AppLogo(
+              size: 96,
+              borderRadius: 24,
+              showShadow: true,
             ),
             const SizedBox(height: 24),
             Row(

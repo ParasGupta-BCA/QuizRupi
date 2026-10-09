@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_logo.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../providers/quiz_provider.dart';
@@ -134,28 +135,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               children: [
                 const SizedBox(height: 12),
                 // Logo & Header
-                Container(
-                  width: 64,
-                  height: 64,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primaryContainer.withValues(alpha: 0.4),
-                        blurRadius: 16,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(18),
-                    child: Image.asset(
-                      'assets/images/logo.png',
-                      width: 64,
-                      height: 64,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                const AppLogo(
+                  size: 64,
+                  borderRadius: 18,
+                  showShadow: true,
                 ),
                 const SizedBox(height: 12),
                 Row(

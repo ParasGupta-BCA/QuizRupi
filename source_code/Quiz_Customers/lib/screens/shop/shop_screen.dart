@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_logo.dart';
 import '../../core/widgets/coin_badge.dart';
 import '../../core/widgets/book_product_card.dart';
 import '../../providers/auth_provider.dart';
@@ -212,28 +213,10 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
                       // Logo & Shop Tag
                       Row(
                         children: [
-                          Container(
-                            width: 38,
-                            height: 38,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(11),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.primaryContainer.withValues(alpha: 0.35),
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 2),
-                                ),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(11),
-                              child: Image.asset(
-                                'assets/images/logo.png',
-                                width: 38,
-                                height: 38,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                          const AppLogo(
+                            size: 38,
+                            borderRadius: 11,
+                            showShadow: true,
                           ),
                           const SizedBox(width: 8),
                           Row(

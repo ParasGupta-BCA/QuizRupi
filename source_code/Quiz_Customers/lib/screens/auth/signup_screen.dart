@@ -6,6 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_logo.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../providers/quiz_provider.dart';
@@ -167,21 +168,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     ),
                     Row(
                       children: [
-                        Container(
-                          width: 32,
-                          height: 32,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(9),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(9),
-                            child: Image.asset(
-                              'assets/images/logo.png',
-                              width: 32,
-                              height: 32,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                        const AppLogo(
+                          size: 32,
+                          borderRadius: 9,
+                          showShadow: false,
                         ),
                         const SizedBox(width: 8),
                         Text('Super', style: AppTextStyles.headlineSm.copyWith(color: Colors.white)),

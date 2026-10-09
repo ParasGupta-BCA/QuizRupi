@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_logo.dart';
 import '../../data/models/app_settings_model.dart';
 import '../../providers/profile_provider.dart';
 import '../../providers/quiz_provider.dart';
@@ -166,33 +167,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
             children: [
               ScaleTransition(
                 scale: _scaleAnimation,
-                child: Container(
-                  width: 96,
-                  height: 96,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primaryContainer.withValues(alpha: 0.5),
-                        blurRadius: 30,
-                        offset: const Offset(0, 8),
-                      ),
-                      BoxShadow(
-                        color: AppColors.secondary.withValues(alpha: 0.25),
-                        blurRadius: 20,
-                        offset: const Offset(0, 0),
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(24),
-                    child: Image.asset(
-                      'assets/images/logo.png',
-                      width: 96,
-                      height: 96,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                child: const AppLogo(
+                  size: 96,
+                  borderRadius: 24,
+                  showShadow: true,
                 ),
               ),
               const SizedBox(height: 24),
