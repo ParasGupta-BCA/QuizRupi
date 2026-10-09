@@ -11,10 +11,10 @@ import 'screens/website/website_screen.dart';
 import 'core/utils/url_strategy_helper.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Configure Web browser URL to keep showing domain only without sub-pages
+  // Configure Web browser URL to keep showing domain only without sub-pages (must run before binding initialization)
   configureDomainOnlyUrlStrategy();
+
+  WidgetsFlutterBinding.ensureInitialized();
 
   // Set system navigation bar & status bar colors for dark navy theme
   SystemChrome.setSystemUIOverlayStyle(

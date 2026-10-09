@@ -3,7 +3,10 @@ import 'dart:html' as html;
 import 'package:flutter_web_plugins/url_strategy.dart';
 
 void configureDomainOnlyUrlStrategy() {
-  setUrlStrategy(null);
+  try {
+    // Explicitly configure PathUrlStrategy so Flutter Web never uses Hash fragments (/#/)
+    usePathUrlStrategy();
+  } catch (_) {}
   ensureRootDomainUrl();
   try {
     html.window.addEventListener('popstate', (_) => ensureRootDomainUrl());
@@ -19,7 +22,7 @@ void ensureRootDomainUrl() {
     final hasHash = currentHash.isNotEmpty && currentHash != '#';
     final hasSearch = currentSearch != null && currentSearch.isNotEmpty;
     if (currentPath != '/' || hasHash || hasSearch) {
-      html.window.history.replaceState(null, '', '/');
+      html.window.history.replaceState(html.window.history.state, '', '/');
     }
   } catch (_) {}
 }

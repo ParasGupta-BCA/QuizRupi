@@ -48,6 +48,8 @@ final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: '/splash',
+    overridePlatformDefaultLocation: true,
+    routerNeglect: true,
     refreshListenable: RouterRefreshNotifier(ref),
     redirect: (context, state) {
       ensureRootDomainUrl();
