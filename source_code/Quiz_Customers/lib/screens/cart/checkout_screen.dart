@@ -528,7 +528,6 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     final cartItems = ref.watch(cartItemsProvider).value ?? [];
-    final profile = ref.watch(userProfileProvider).value;
     final addressesAsync = ref.watch(userAddressesProvider);
     final appSettings = ref.watch(appSettingsProvider).settings;
 
