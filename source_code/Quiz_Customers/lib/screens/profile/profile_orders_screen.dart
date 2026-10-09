@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/widgets/coin_badge.dart';
+import '../../core/widgets/app_network_image.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../providers/order_provider.dart';
@@ -814,8 +815,14 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
                                       width: 52,
                                       height: 74,
                                       color: AppColors.surfaceContainerHigh,
-                                      child: coverUrl != null
-                                          ? Image.network(coverUrl, fit: BoxFit.cover)
+                                      child: coverUrl != null && coverUrl.isNotEmpty
+                                          ? AppNetworkImage(
+                                              imageUrl: coverUrl,
+                                              width: 52,
+                                              height: 74,
+                                              fit: BoxFit.cover,
+                                              fallbackTitle: bookTitle,
+                                            )
                                           : const Icon(Icons.menu_book, color: AppColors.outline),
                                     ),
                                   ),

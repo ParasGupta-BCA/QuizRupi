@@ -706,15 +706,7 @@ class _WebsiteScreenState extends ConsumerState<WebsiteScreen> {
                     ),
                   ),
 
-                // 3. Web-only top-right floating toolbar (refresh & open in new tab)
-                if (kIsWeb && _isPageLoaded)
-                  Positioned(
-                    top: 12,
-                    right: 12,
-                    child: _buildWebFloatingToolbar(),
-                  ),
-
-                // 4. Splash Screen Overlay: smoothly covers until website is loaded, then cross-fades
+                // 3. Splash Screen Overlay: smoothly covers until website is loaded, then cross-fades
                 if (!_isTransitionComplete)
                   Positioned.fill(
                     child: IgnorePointer(
@@ -738,50 +730,6 @@ class _WebsiteScreenState extends ConsumerState<WebsiteScreen> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildWebFloatingToolbar() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: const Color(0xFF0F172A).withValues(alpha: 0.88),
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.35),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          IconButton(
-            tooltip: 'Reload Website',
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.refresh_rounded, size: 18, color: Colors.white70),
-            onPressed: () => _platformController?.reload(),
-          ),
-          const SizedBox(width: 4),
-          IconButton(
-            tooltip: 'Open in New Tab',
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            icon: const Icon(Icons.open_in_new_rounded, size: 18, color: Colors.white70),
-            onPressed: () async {
-              final target = await _platformController?.currentUrl() ?? _currentLoadedUrl;
-              final uri = Uri.tryParse(target);
-              if (uri != null) {
-                await launchUrl(uri, mode: LaunchMode.externalApplication);
-              }
-            },
-          ),
-        ],
       ),
     );
   }

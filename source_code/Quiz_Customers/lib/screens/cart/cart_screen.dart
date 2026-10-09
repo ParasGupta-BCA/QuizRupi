@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../core/widgets/app_network_image.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/cart_provider.dart';
 
@@ -297,14 +297,13 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                   width: 58,
                                   height: 82,
                                   color: AppColors.surfaceContainerHigh,
-                                  child: book?.coverImageUrl != null && book!.coverImageUrl!.isNotEmpty
-                                      ? CachedNetworkImage(
+                                  child: (book != null && book.coverImageUrl != null && book.coverImageUrl!.isNotEmpty)
+                                      ? AppNetworkImage(
                                           imageUrl: book.coverImageUrl!,
+                                          width: 58,
+                                          height: 82,
                                           fit: BoxFit.cover,
-                                          errorWidget: (_, __, ___) => const Icon(
-                                            Icons.menu_book,
-                                            color: AppColors.outline,
-                                          ),
+                                          fallbackTitle: book.title,
                                         )
                                       : const Icon(Icons.menu_book, color: AppColors.outline),
                                 ),

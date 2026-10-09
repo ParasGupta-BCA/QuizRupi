@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:intl/intl.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/widgets/coin_badge.dart';
+import '../../core/widgets/app_network_image.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../providers/shop_provider.dart';
@@ -415,20 +415,11 @@ class _BookDetailScreenState extends ConsumerState<BookDetailScreen> {
                               borderRadius: BorderRadius.circular(20),
                               child: Center(
                                 child: book.coverImageUrl != null && book.coverImageUrl!.isNotEmpty
-                                    ? CachedNetworkImage(
+                                    ? AppNetworkImage(
                                         imageUrl: book.coverImageUrl!,
                                         height: 280,
                                         fit: BoxFit.contain,
-                                        placeholder: (_, __) => const Center(
-                                          child: CircularProgressIndicator(
-                                            color: AppColors.primaryContainer,
-                                          ),
-                                        ),
-                                        errorWidget: (_, __, ___) => const Icon(
-                                          Icons.menu_book,
-                                          size: 64,
-                                          color: AppColors.outline,
-                                        ),
+                                        fallbackTitle: book.title,
                                       )
                                     : const Icon(
                                         Icons.menu_book,

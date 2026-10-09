@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import '../../data/models/book_model.dart';
+import 'app_network_image.dart';
 
 class BookProductCard extends StatelessWidget {
   final BookModel book;
@@ -53,21 +53,12 @@ class BookProductCard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: book.coverImageUrl != null && book.coverImageUrl!.isNotEmpty
-                        ? CachedNetworkImage(
+                        ? AppNetworkImage(
                             imageUrl: book.coverImageUrl!,
                             width: double.infinity,
                             height: double.infinity,
                             fit: BoxFit.cover,
-                            placeholder: (_, __) => Container(
-                              color: AppColors.surfaceContainer,
-                              child: const Center(
-                                child: CircularProgressIndicator(strokeWidth: 2),
-                              ),
-                            ),
-                            errorWidget: (_, __, ___) => Container(
-                              color: AppColors.surfaceContainerHigh,
-                              child: const Icon(Icons.menu_book, color: AppColors.outline),
-                            ),
+                            fallbackTitle: book.title,
                           )
                         : Container(
                             color: AppColors.surfaceContainerHigh,
