@@ -68,7 +68,7 @@ class AppSettingsNotifier extends Notifier<AppSettingsState> {
           websiteUrl: prefs.getString(_keyWebsiteUrl),
           websiteTitle: prefs.getString(_keyWebsiteTitle),
           upiId: prefs.getString(_keyUpiId) ?? 'quizrupi@upi',
-          payeeName: prefs.getString(_keyPayeeName) ?? 'QuizRupi Store',
+          payeeName: prefs.getString(_keyPayeeName) ?? 'Super Quiz Store',
           isUpiEnabled: prefs.getBool(_keyIsUpiEnabled) ?? true,
           updatedAt: prefs.getString(_keyUpdatedAt) != null
               ? DateTime.tryParse(prefs.getString(_keyUpdatedAt)!)

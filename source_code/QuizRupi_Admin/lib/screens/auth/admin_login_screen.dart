@@ -127,7 +127,7 @@ class _AdminLoginScreenState extends ConsumerState<AdminLoginScreen> {
                       const SizedBox(height: 20),
                       const Center(
                         child: Text(
-                          'QuizRupi Admin',
+                          'Super Quiz Admin',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w900,

@@ -346,7 +346,7 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
                             ? 'Dispatched from Central Hub, on route to destination'
                             : (step3Current
                                 ? 'Arrived at Central Fulfillment Center, New Delhi'
-                                : 'Courier pickup scheduled with QuizRupi Express'),
+                                : 'Courier pickup scheduled with Super Quiz Express'),
                         time: step3Completed ? 'Completed' : (step3Current ? 'In Progress' : 'Upcoming'),
                         isCompleted: step3Completed,
                         isCurrent: step3Current,
@@ -455,7 +455,7 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Contact support via WhatsApp or email: support@quizrupi.app')),
+                        const SnackBar(content: Text('Contact support via WhatsApp or email: support@superquiz.app')),
                       );
                     },
                     style: OutlinedButton.styleFrom(

@@ -341,7 +341,7 @@ class _AppControlScreenState extends ConsumerState<AppControlScreen> {
               ),
               const SizedBox(height: 6),
               Text(
-                'Remotely control what all QuizRupi users see on their mobile phones in real-time via Supabase.',
+                'Remotely control what all Super Quiz users see on their mobile phones in real-time via Supabase.',
                 style: TextStyle(
                   fontSize: 14,
                   color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,

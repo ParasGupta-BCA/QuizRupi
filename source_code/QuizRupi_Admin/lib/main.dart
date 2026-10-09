@@ -44,7 +44,7 @@ class QuizRupiAdminApp extends ConsumerWidget {
     final themeMode = ref.watch(themeProvider);
 
     return MaterialApp.router(
-      title: 'QuizRupi Admin',
+      title: 'Super Quiz Admin',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

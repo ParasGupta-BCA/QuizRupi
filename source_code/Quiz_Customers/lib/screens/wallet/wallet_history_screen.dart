@@ -28,7 +28,7 @@ class WalletHistoryScreen extends ConsumerWidget {
           onPressed: () => context.pop(),
         ),
         title: Text(
-          'QuizRupi Points',
+          'Super Quiz Points',
           style: AppTextStyles.headlineSm.copyWith(fontWeight: FontWeight.w700),
         ),
       ),

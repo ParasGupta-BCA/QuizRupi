@@ -162,7 +162,7 @@ class ReferEarnScreen extends ConsumerWidget {
                     child: ElevatedButton.icon(
                       onPressed: () {
                         Clipboard.setData(ClipboardData(
-                          text: 'Join QuizRupi and earn quiz points! Use my referral code: $referralCode',
+                          text: 'Join Super Quiz and earn quiz points! Use my referral code: $referralCode',
                         ));
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Referral invite copied to clipboard!')),

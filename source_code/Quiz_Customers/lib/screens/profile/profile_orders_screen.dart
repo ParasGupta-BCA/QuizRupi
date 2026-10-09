@@ -90,7 +90,7 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
           children: [
             const Icon(Icons.support_agent, color: AppColors.primaryContainer),
             const SizedBox(width: 8),
-            Text('QuizRupi Support', style: AppTextStyles.headlineSm.copyWith(fontSize: 18)),
+            Text('Super Quiz Support', style: AppTextStyles.headlineSm.copyWith(fontSize: 18)),
           ],
         ),
         content: Column(
@@ -102,7 +102,7 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
               style: AppTextStyles.bodyMd.copyWith(color: AppColors.onSurface, fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 8),
-            Text('• Email: support@quizrupi.app', style: AppTextStyles.bodySm.copyWith(color: AppColors.onSurfaceVariant)),
+            Text('• Email: support@superquiz.app', style: AppTextStyles.bodySm.copyWith(color: AppColors.onSurfaceVariant)),
             const SizedBox(height: 4),
             Text('• WhatsApp: +91 98765 43210', style: AppTextStyles.bodySm.copyWith(color: AppColors.onSurfaceVariant)),
             const SizedBox(height: 4),
@@ -159,7 +159,7 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
         backgroundColor: AppColors.surfaceContainerHigh,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: Text('Log Out?', style: AppTextStyles.headlineSm),
-        content: const Text('Are you sure you want to log out of QuizRupi?'),
+        content: const Text('Are you sure you want to log out of Super Quiz?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
@@ -231,25 +231,46 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
                               width: 36,
                               height: 36,
                               decoration: BoxDecoration(
-                                color: AppColors.primaryContainer,
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: AppColors.primaryContainer.withOpacity(0.35),
+                                    color: AppColors.primaryContainer.withValues(alpha: 0.35),
                                     blurRadius: 6,
                                     offset: const Offset(0, 2),
                                   ),
                                 ],
                               ),
-                              child: const Icon(Icons.lightbulb, color: AppColors.secondary, size: 20),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  'assets/images/logo.png',
+                                  width: 36,
+                                  height: 36,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
                             const SizedBox(width: 8),
-                            Text(
-                              'QuizRupi',
-                              style: AppTextStyles.headlineSm.copyWith(
-                                fontWeight: FontWeight.w800,
-                                letterSpacing: -0.5,
-                              ),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'Super',
+                                  style: AppTextStyles.headlineSm.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                    letterSpacing: -0.5,
+                                  ),
+                                ),
+                                Text(
+                                  ' Quiz',
+                                  style: AppTextStyles.headlineSm.copyWith(
+                                    color: AppColors.primary,
+                                    fontWeight: FontWeight.w800,
+                                    letterSpacing: -0.5,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -1026,7 +1047,7 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
                             icon: Icons.description_outlined,
                             iconColor: AppColors.primary,
                             title: 'Terms of Service',
-                            subtitle: 'Terms and conditions for using QuizRupi',
+                            subtitle: 'Terms and conditions for using Super Quiz',
                             onTap: () => _launchURL(_termsUrl),
                           ),
                           _buildDivider(),
@@ -1036,7 +1057,7 @@ class _ProfileOrdersScreenState extends ConsumerState<ProfileOrdersScreen> {
                             icon: Icons.privacy_tip_outlined,
                             iconColor: AppColors.primary,
                             title: 'Privacy Policy',
-                            subtitle: 'How QuizRupi protects and uses your data',
+                            subtitle: 'How Super Quiz protects and uses your data',
                             onTap: () => _launchURL(_privacyUrl),
                           ),
                           _buildDivider(),

@@ -376,11 +376,11 @@ class ResponsiveScaffold extends ConsumerWidget {
                     Row(
                       children: [
                         Text(
-                          'Quiz',
+                          'Super',
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
                         ),
                         Text(
-                          'Rupi',
+                          ' Quiz',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w900,
@@ -536,7 +536,7 @@ class ResponsiveScaffold extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'QuizRupi Admin',
+                        'Super Quiz Admin',
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       Text(

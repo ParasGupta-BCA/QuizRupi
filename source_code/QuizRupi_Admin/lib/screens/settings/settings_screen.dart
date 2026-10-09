@@ -259,7 +259,7 @@ class SettingsScreen extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'QuizRupi Admin Panel',
+                            'Super Quiz Admin Panel',
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                           SizedBox(height: 3),

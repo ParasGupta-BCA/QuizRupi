@@ -110,7 +110,7 @@ class _AdminSplashScreenState extends ConsumerState<AdminSplashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Quiz',
+                    'Super',
                     style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w900,
@@ -119,7 +119,7 @@ class _AdminSplashScreenState extends ConsumerState<AdminSplashScreen>
                     ),
                   ),
                   const Text(
-                    'Rupi',
+                    ' Quiz',
                     style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w900,

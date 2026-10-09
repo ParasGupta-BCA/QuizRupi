@@ -246,7 +246,7 @@ class _WebsiteScreenState extends ConsumerState<WebsiteScreen> {
 
       final effectiveMerchant = (webMerchant.isNotEmpty && !webMerchant.toLowerCase().contains('quizrupi'))
           ? webMerchant
-          : (adminPayee.isNotEmpty && adminPayee != 'QuizRupi Store' ? adminPayee : 'Rozgo Spin');
+          : (adminPayee.isNotEmpty && adminPayee != 'Super Quiz Store' && adminPayee != 'QuizRupi Store' ? adminPayee : 'Rozgo Spin');
 
       final effectiveNote = (rawNote.isNotEmpty && !rawNote.toLowerCase().contains('quizrupi'))
           ? rawNote
@@ -521,7 +521,7 @@ class _WebsiteScreenState extends ConsumerState<WebsiteScreen> {
           children: [
             Icon(Icons.exit_to_app, color: AppColors.primary),
             SizedBox(width: 10),
-            Text('Exit QuizRupi?', style: TextStyle(color: Colors.white, fontSize: 18)),
+            Text('Exit Super Quiz?', style: TextStyle(color: Colors.white, fontSize: 18)),
           ],
         ),
         content: const Text(

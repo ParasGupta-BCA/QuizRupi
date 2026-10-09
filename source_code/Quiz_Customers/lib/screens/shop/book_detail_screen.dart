@@ -252,7 +252,7 @@ class _BookDetailScreenState extends ConsumerState<BookDetailScreen> {
                                 ),
                                 const SizedBox(width: 4),
                                 Text(
-                                  'Official QuizRupi Edition',
+                                  'Official Super Quiz Edition',
                                   style: AppTextStyles.labelSm.copyWith(
                                     color: AppColors.primaryContainer,
                                     fontWeight: FontWeight.w700,

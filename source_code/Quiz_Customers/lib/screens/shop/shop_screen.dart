@@ -216,20 +216,23 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
                             width: 38,
                             height: 38,
                             decoration: BoxDecoration(
-                              color: AppColors.primaryContainer,
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(11),
                               boxShadow: [
                                 BoxShadow(
-                                  color: AppColors.primaryContainer.withOpacity(0.35),
+                                  color: AppColors.primaryContainer.withValues(alpha: 0.35),
                                   blurRadius: 8,
                                   offset: const Offset(0, 2),
                                 ),
                               ],
                             ),
-                            child: const Icon(
-                              Icons.lightbulb,
-                              color: AppColors.secondary,
-                              size: 22,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(11),
+                              child: Image.asset(
+                                'assets/images/logo.png',
+                                width: 38,
+                                height: 38,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -238,8 +241,17 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
                             textBaseline: TextBaseline.alphabetic,
                             children: [
                               Text(
-                                'QuizRupi',
+                                'Super',
                                 style: AppTextStyles.headlineSm.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: -0.5,
+                                ),
+                              ),
+                              Text(
+                                ' Quiz',
+                                style: AppTextStyles.headlineSm.copyWith(
+                                  color: AppColors.primary,
                                   fontWeight: FontWeight.w800,
                                   letterSpacing: -0.5,
                                 ),
