@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -89,6 +90,70 @@ class QuizRupiApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       routerConfig: router,
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.trackpad,
+          PointerDeviceKind.unknown,
+        },
+      ),
+      builder: (context, child) {
+        final mq = MediaQuery.of(context);
+        const double maxMobileWidth = 460.0;
+
+        // On mobile devices or narrow browser windows, fill the full width natively
+        if (mq.size.width <= maxMobileWidth) {
+          return child ?? const SizedBox.shrink();
+        }
+
+        // On desktop and widescreen displays, center inside a smartphone container
+        final mobileMediaQuery = mq.copyWith(
+          size: Size(maxMobileWidth, mq.size.height),
+        );
+
+        return ScaffoldMessenger(
+          child: Container(
+            color: const Color(0xFF060912), // Deep dark desktop backdrop
+            alignment: Alignment.center,
+            child: ClipRect(
+              child: SizedBox(
+                width: maxMobileWidth,
+                height: mq.size.height,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: AppColors.surface,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.75),
+                        blurRadius: 40,
+                        spreadRadius: 4,
+                        offset: const Offset(0, 4),
+                      ),
+                      BoxShadow(
+                        color: AppColors.primaryContainer.withValues(alpha: 0.12),
+                        blurRadius: 60,
+                        spreadRadius: 6,
+                      ),
+                    ],
+                    border: Border.symmetric(
+                      vertical: BorderSide(
+                        color: AppColors.outlineVariant.withValues(alpha: 0.25),
+                        width: 1,
+                      ),
+                    ),
+                  ),
+                  child: MediaQuery(
+                    data: mobileMediaQuery,
+                    child: child ?? const SizedBox.shrink(),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
