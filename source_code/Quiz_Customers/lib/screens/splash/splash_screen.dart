@@ -167,54 +167,30 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
               ScaleTransition(
                 scale: _scaleAnimation,
                 child: Container(
-                  width: 90,
-                  height: 90,
+                  width: 96,
+                  height: 96,
                   decoration: BoxDecoration(
-                    color: AppColors.primaryContainer,
-                    borderRadius: BorderRadius.circular(26),
+                    borderRadius: BorderRadius.circular(24),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primaryContainer.withValues(alpha: 0.45),
-                        blurRadius: 28,
+                        color: AppColors.primaryContainer.withValues(alpha: 0.5),
+                        blurRadius: 30,
                         offset: const Offset(0, 8),
                       ),
                       BoxShadow(
-                        color: AppColors.secondary.withValues(alpha: 0.2),
-                        blurRadius: 16,
+                        color: AppColors.secondary.withValues(alpha: 0.25),
+                        blurRadius: 20,
                         offset: const Offset(0, 0),
                       ),
                     ],
                   ),
-                  child: Center(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        const Icon(
-                          Icons.lightbulb,
-                          size: 48,
-                          color: AppColors.secondary,
-                        ),
-                        Positioned(
-                          right: 0,
-                          bottom: 0,
-                          child: Container(
-                            padding: const EdgeInsets.all(3),
-                            decoration: const BoxDecoration(
-                              color: AppColors.secondaryContainer,
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Text(
-                              '₹',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,
-                                height: 1,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(24),
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      width: 96,
+                      height: 96,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -224,14 +200,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Quiz',
+                    'Super',
                     style: AppTextStyles.headlineXl.copyWith(
+                      color: Colors.white,
                       fontWeight: FontWeight.w900,
                       letterSpacing: -0.5,
                     ),
                   ),
                   Text(
-                    'Rupi',
+                    ' Quiz',
                     style: AppTextStyles.headlineXl.copyWith(
                       color: AppColors.primary,
                       fontWeight: FontWeight.w900,

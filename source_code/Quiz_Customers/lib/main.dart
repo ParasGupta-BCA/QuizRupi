@@ -86,7 +86,7 @@ class QuizRupiApp extends ConsumerWidget {
     });
 
     return MaterialApp.router(
-      title: 'QuizRupi',
+      title: 'Super Quiz',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       routerConfig: router,
@@ -115,7 +115,7 @@ class QuizRupiApp extends ConsumerWidget {
 
         return ScaffoldMessenger(
           child: Container(
-            color: const Color(0xFF060912), // Deep dark desktop backdrop
+            color: const Color(0xFF070314), // Deep midnight violet desktop backdrop
             alignment: Alignment.center,
             child: ClipRect(
               child: SizedBox(

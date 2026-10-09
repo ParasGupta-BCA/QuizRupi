@@ -171,16 +171,22 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                           width: 32,
                           height: 32,
                           decoration: BoxDecoration(
-                            color: AppColors.primaryContainer,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(9),
                           ),
-                          child: const Icon(Icons.lightbulb,
-                              size: 18, color: AppColors.secondary),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(9),
+                            child: Image.asset(
+                              'assets/images/logo.png',
+                              width: 32,
+                              height: 32,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                        const SizedBox(width: 6),
-                        Text('Quiz', style: AppTextStyles.headlineSm),
+                        const SizedBox(width: 8),
+                        Text('Super', style: AppTextStyles.headlineSm.copyWith(color: Colors.white)),
                         Text(
-                          'Rupi',
+                          ' Quiz',
                           style: AppTextStyles.headlineSm.copyWith(
                             color: AppColors.primary,
                           ),
