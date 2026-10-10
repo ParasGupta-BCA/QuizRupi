@@ -31,16 +31,12 @@ import '../../screens/profile/quiz_history_screen.dart';
 import '../../screens/profile/refer_earn_screen.dart';
 import '../../screens/website/website_screen.dart';
 import '../../providers/app_settings_provider.dart';
-import '../utils/url_strategy_helper.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 class RouterRefreshNotifier extends ChangeNotifier {
   RouterRefreshNotifier(Ref ref) {
-    ref.listen(appSettingsProvider, (_, _) {
-      ensureRootDomainUrl();
-      notifyListeners();
-    });
+    ref.listen(appSettingsProvider, (_, _) => notifyListeners());
   }
 }
 
@@ -48,11 +44,8 @@ final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: '/splash',
-    overridePlatformDefaultLocation: true,
-    routerNeglect: true,
     refreshListenable: RouterRefreshNotifier(ref),
     redirect: (context, state) {
-      ensureRootDomainUrl();
       final appSettingsState = ref.read(appSettingsProvider);
       final session = Supabase.instance.client.auth.currentSession;
       final path = state.uri.path;

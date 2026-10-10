@@ -12,7 +12,7 @@ import 'screens/website/website_screen.dart';
 import 'core/utils/url_strategy_helper.dart';
 
 void main() async {
-  // Configure Web browser URL to keep showing domain only without sub-pages (must run before binding initialization)
+  // Configure Web browser URL strategy for clean page navigation (must run before binding initialization)
   configureDomainOnlyUrlStrategy();
 
   WidgetsFlutterBinding.ensureInitialized();

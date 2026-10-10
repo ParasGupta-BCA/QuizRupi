@@ -16,45 +16,6 @@
   -->
   <base href="$FLUTTER_BASE_HREF">
 
-  <script>
-    // Ensure the browser address bar ALWAYS displays only the clean domain root
-    (function() {
-      if (window.location.pathname.startsWith('/admin')) {
-        return;
-      }
-      var _origPush = history.pushState.bind(history);
-      var _origReplace = history.replaceState.bind(history);
-
-      function sanitizeUrl(targetUrl) {
-        if (!targetUrl || typeof targetUrl !== 'string') return '/';
-        if (targetUrl.startsWith('/admin')) return targetUrl;
-        return '/';
-      }
-
-      function enforceDomainOnly() {
-        if (window.location.pathname.startsWith('/admin')) return;
-        if (window.location.pathname !== '/' || window.location.hash.length > 0 || window.location.search.length > 0) {
-          try {
-            _origReplace(history.state, document.title, '/');
-          } catch (e) {}
-        }
-      }
-
-      history.pushState = function(state, title, url) {
-        return _origReplace(state, title, sanitizeUrl(url));
-      };
-
-      history.replaceState = function(state, title, url) {
-        return _origReplace(state, title, sanitizeUrl(url));
-      };
-
-      window.addEventListener('hashchange', enforceDomainOnly);
-      window.addEventListener('popstate', enforceDomainOnly);
-      enforceDomainOnly();
-      setInterval(enforceDomainOnly, 20);
-    })();
-  </script>
-
   <meta charset="UTF-8">
   <meta name="referrer" content="no-referrer">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
